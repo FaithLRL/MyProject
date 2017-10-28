@@ -6,7 +6,7 @@
 
 <struts>
     <constant name="struts.devMode" value="true"/>
-    <package name="p1" extends="struts-default">
+    <package name="p1" extends="struts-default" namespace="/user" >
         <action name="register" class="com.lrl.action.UserAction" method="register" >
             <result>/success.jsp</result>
             <result name="exists">/message.jsp</result>
