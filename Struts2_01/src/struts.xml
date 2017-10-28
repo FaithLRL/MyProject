@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!--<constant name="struts.devMode" value="true"/>-->
+    <constant name="struts.action.extension" value="action" />
+    <package name="p1" extends="struts-default">
+        <result-types>
+            <result-type name="captcha" class="com.lrl.result.CAPTCHAResult"/>
+        </result-types>
+        <action name="captchaAction" class="com.lrl.web.action.CaptchaAction" method="captchaAction" >
+            <result name="success" type="captcha"></result>
+        </action>
+    </package>
+</struts>
