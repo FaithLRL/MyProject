@@ -1,4 +1,4 @@
-package com.lrl.action;
+package com.lrl.web.action;
 
 import com.lrl.domain.User;
 import com.lrl.impl.UserServiceImpl;

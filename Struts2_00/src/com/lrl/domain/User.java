@@ -2,13 +2,14 @@ package com.lrl.domain;
 
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class User implements Serializable {
     private String username;
-    private String password;
-    private String birthday;
-    private String hobby;
-    private String married;
+	private String password;
+	private Date birthday;
+	private String hobby;
+	private boolean married;
 
     public String getUsername() {
         return username;
@@ -26,11 +27,11 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public String getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
@@ -42,11 +43,11 @@ public class User implements Serializable {
         this.hobby = hobby;
     }
 
-    public String getMarried() {
+    public boolean isMarried() {
         return married;
     }
 
-    public void setMarried(String married) {
+    public void setMarried(boolean married) {
         this.married = married;
     }
 }

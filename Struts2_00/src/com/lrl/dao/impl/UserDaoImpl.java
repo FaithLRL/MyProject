@@ -23,15 +23,11 @@ public class UserDaoImpl implements IUserDao {
     public int addUser(User user) {
 
         try {
-            return qr.update("insert into user(username,password birthday,hobby,married) values(?,?,?,?,?)",
-                    user.getUsername(),
-                    user.getPassword(),
-                    user.getBirthday(),
-                    user.getHobby(),
-                    user.getMarried()
-
-            );
+            return qr.update("insert into user(username,password,birthday,hobby,married)values(?,?,?,?,?)",
+                user.getUsername(),user.getPassword(),user.getBirthday(),user.getHobby(),user.isMarried());
         }catch (Exception e){
             throw new RuntimeException(e);
         }    }
 }
+
+
