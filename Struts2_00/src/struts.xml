@@ -17,6 +17,19 @@
         <action name="register" class="com.lrl.web.action.UserAction" method="register" >
             <result type="redirect">/success.jsp</result><!-- 当注册成功之后重定向的结果视图 -->
             <result name="exists">/message.jsp</result><!-- 当用户名已经存在之后，转向的结果视图 -->
+            <!--出现错误时，需返回到原页面-->
+            <result name="input">/register.jsp</result>
+        </action>
+    </package>
+
+
+
+    <package name="p2" extends="struts-default">
+        <result-types>
+            <result-type name="captcha" class="com.lrl.web.result.CAPTCHAResult"></result-type>
+        </result-types>
+        <action name="captchaAction" class="com.lrl.web.action.CaptchaAction" >
+            <result name="success" type="captcha"></result>
         </action>
     </package>
 </struts>

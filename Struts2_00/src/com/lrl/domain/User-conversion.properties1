@@ -1,0 +1,2 @@
+#局部类型转换器，声明方式以使用属性名称作为Key，以类型转换器的全名作为value
+birthday=com.lrl.web.converter.MyTypeConverter
