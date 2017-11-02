@@ -13,7 +13,7 @@
          dynamic-update:动态更新  默认值"false"
                          true=> 没改动过的属性,将不会生成到update语句中
      -->
-    <class name="User" table="user"  >
+    <class name="User" table="t_user"  >
         <!-- id: 配置实体与表中 id对应
             name: user对象中标识主键的属性名称
             column: 主键在表中的列名
@@ -21,7 +21,7 @@
             unsaved-value(不常用): 指定主键为什么值时,当做null来处理.
            access(强烈推荐不要用):field 那么在操作属性时,会直接操作对应的字段而不是get/set方法
          -->
-        <id name="id" column="id" length="10"   >
+        <id name="id" column="id">
             <!-- generator:主键生成策略
                      1.increment  数据库自己生成主键. 先从数据库中查询最大的ID值,将ID值加1作为新的主键
                     2.identity  依赖于数据的主键自增功能
@@ -32,7 +32,7 @@
                     7.assigned 自己指定主键值. 表的主键是自然主键时使用.
 
              -->
-            <generator class="uuid"></generator>
+            <generator class="native"></generator>
         </id>
         <!-- property : 实体中属性与表中列的对应
              name : 实体中属性名称
@@ -51,7 +51,7 @@
             java类型		 		 数据库类型指定			Hibernate类型指定
             java.lang.String	varchar				string
          -->
-        <property name="name" column="name" update="true" type="string" ></property>
+        <property name="name" column="name"></property>
         <property name="password" column="password"></property>
         <!--<property name="sal" column="sal" precision="2" scale="3" ></property>-->
     </class>
