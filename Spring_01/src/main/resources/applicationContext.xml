@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--配置servies-->
+
+
+    <!--<bean id="userserviceId" class="com.lrl.ioc.UserServiceImpl"></bean>-->
+    <!--<bean id="bookserviceId" class="com.lrl.di.BookServiceImpl">-->
+        <!--<property name="bookDao" ref="booDaoId"></property>-->
+    <!--</bean>-->
+    <!--将静态工厂创建的实例交于Spring
+      class 确定静态工厂的全限定类名
+      factory-method 确定静态方法名
+    -->
+    <!--<bean id="staticFactoryId" class="com.lrl.inject.static_factory.MyBeanFactory" factory-method="createService"></bean>-->
+
+    <!--创建实例工厂-->
+    <!--<bean id="myBeanFactoryId" class="com.lrl.inject.factory.MyBeanFactory"></bean>-->
+    <!--获得userservice-->
+    <!--<bean id="userServiceId" factory-bean="myBeanFactoryId" factory-method="createService"></bean>-->
+
+
+    <!--单例/多例模式
+       singleton 单例
+       prototype 多例
+    -->
+    <!--<bean id="UserServiceId" class="com.lrl.scope.UserServiceImpl" scope="prototype"></bean>-->
+
+    <!--生命周期  scope
+    init-method 用于初始化方法:准备数据
+    destroy-method 用于销毁方法：清理资源等
+    -->
+    <!--<bean id="lifecycleId" class="com.lrl.lifecycle.UserServiceImpl" init-method="myInit" destroy-method="myDestory"></bean>-->
+
+    <!--<bean class="com.lrl.lifecycle.MyBeanPostProcessor"></bean>-->
+
+    <!--构造方法注入：constructor-->
+    <!--<bean id="userId" class="com.lrl.constructor.User">-->
+        <!--<constructor-arg index="0" value="张三"></constructor-arg>-->
+        <!--<constructor-arg index="1" value="20"></constructor-arg>-->
+    <!--</bean>-->
+
+    <!--Setter方法注入 -->
+    <!--<bean id="perSonId" class="com.lrl.setter.PerSon" >-->
+        <!--<property name="person">-->
+            <!--<value>王五</value>-->
+        <!--</property>-->
+        <!--<property name="age">-->
+            <!--<value>22</value>-->
+        <!--</property>-->
+
+        <!--<property name="homeAdder" ref="homeAdder"></property>-->
+        <!--<property name="companyAdder">-->
+            <!--<ref bean="companyAdder" />-->
+        <!--</property>-->
+    <!--</bean>-->
+    <!--<bean id="homeAdder" class="com.lrl.setter.Address">-->
+        <!--<property name="adder" value="河南省信阳市"></property>-->
+        <!--<property name="tel" value="18658175367"></property>-->
+    <!--</bean>-->
+    <!--<bean id="companyAdder" class="com.lrl.setter.Address">-->
+        <!--<property name="adder" value="河南省信阳市"></property>-->
+        <!--<property name="tel" value="911"></property>-->
+    <!--</bean>-->
+
+
+
+    <!--集合注入Coll-->
+    <bean id="collDataId" class="com.lrl.coll.CollData">
+        <property name="arrayData">
+            <array>
+                <value>k,sdmdkas</value>
+                <value>k,dsad</value>
+                <value>k,sxcx</value>
+                <value>k,nm,</value>
+                <value>k,hjg</value>
+            </array>
+        </property>
+        <property name="listData">
+            <list>
+                <value>k,sdmdkas</value>
+                <value>k,dsad</value>
+                <value>k,sxcx</value>
+                <value>k,nm,</value>
+                <value>k,hjg</value>
+            </list>
+        </property>
+        <property name="mapData">
+            <map>
+                <entry key="jack" value="杰克"></entry>
+                <entry>
+                    <key>
+                        <value>rose</value>
+                    </key>
+                    <value>肉丝</value>
+                </entry>
+            </map>
+        </property>
+
+    </bean>
+
+
+    <!--创建dao实例-->
+    <bean id="booDaoId" class="com.lrl.di.BookDaoImpl"></bean>
+</beans>
