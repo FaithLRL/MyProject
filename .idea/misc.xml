@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <type id="Spring" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/Spring_01/pom.xml" />
         <option value="$PROJECT_DIR$/SpringBoot_01/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringBoot_Sell/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringBoot_SPP/pom.xml" />
+        <option value="$PROJECT_DIR$/SellManage/pom.xml" />
       </list>
     </option>
   </component>

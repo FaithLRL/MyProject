@@ -6,13 +6,22 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="demo" />
+        <module name="SellManage" />
         <module name="Spring_01" />
         <module name="SpringBoot_01" />
+        <module name="SpringBoot_Sell" />
+        <module name="SpringBoot_SPP" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="demo" target="1.8" />
+      <module name="sell" target="1.8" />
+      <module name="SellManage" target="1.8" />
       <module name="Spring_01" target="1.8" />
       <module name="SpringBoot_01" target="1.8" />
+      <module name="SpringBoot_Sell" target="1.8" />
+      <module name="SpringBoot_SPP" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
