@@ -1,20 +1,9 @@
-package com.lrl.study.domain;
+package com.lrl.study.form;
 
-
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.lrl.study.enums.ProductStatusEnum;
-import com.lrl.study.util.EnumUtil;
-import com.lrl.study.util.TimeUtils;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.math.BigDecimal;
-import java.util.Date;
 
-@Entity
-public class ProductInfo extends TimeUtils {
-    @Id
+public class ProductForm {
+
     private String productId;
 
     /** 名字. */
@@ -32,17 +21,8 @@ public class ProductInfo extends TimeUtils {
     /** 小图. */
     private String productIcon;
 
-    /** 状态, 0正常1下架. */
-    private Integer productStatus = ProductStatusEnum.UP.getCode();
-
     /** 类目编号. */
     private Integer categoryType;
-
-    @JsonIgnore
-    public ProductStatusEnum getProductStatusEnum() {
-        return EnumUtil.getByCode(productStatus, ProductStatusEnum.class);
-    }
-
 
     public String getProductId() {
         return productId;
@@ -98,27 +78,5 @@ public class ProductInfo extends TimeUtils {
 
     public void setCategoryType(Integer categoryType) {
         this.categoryType = categoryType;
-    }
-
-    public Integer getProductStatus() {
-        return productStatus;
-    }
-
-    public void setProductStatus(Integer productStatus) {
-        this.productStatus = productStatus;
-    }
-
-    @Override
-    public String toString() {
-        return "ProductInfo{" +
-                "productId='" + productId + '\'' +
-                ", productName='" + productName + '\'' +
-                ", productPrice=" + productPrice +
-                ", productStock=" + productStock +
-                ", productDescription='" + productDescription + '\'' +
-                ", productIcon='" + productIcon + '\'' +
-                ", productType=" + categoryType +
-                ", productStatus=" + productStatus +
-                '}';
     }
 }

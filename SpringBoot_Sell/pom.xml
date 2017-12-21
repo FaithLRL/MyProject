@@ -54,7 +54,6 @@
 			<artifactId>weixin-java-mp</artifactId>
 			<version>RELEASE</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>

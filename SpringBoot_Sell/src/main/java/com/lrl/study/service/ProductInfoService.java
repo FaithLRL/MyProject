@@ -22,4 +22,11 @@ public interface ProductInfoService {
 
     void increaseStock(List<CartDTO> cartDTOList);//加库存
 
+    ProductInfo onSale(String productId);//上架
+
+    ProductInfo offSale(String productId);//下架
+
+
+
+
 }

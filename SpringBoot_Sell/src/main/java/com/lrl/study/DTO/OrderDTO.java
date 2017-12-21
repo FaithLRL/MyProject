@@ -1,16 +1,19 @@
 package com.lrl.study.DTO;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.lrl.study.domain.OrderDetail;
 import com.lrl.study.enums.OrderStatusEnum;
 import com.lrl.study.util.TimeUtils;
 
 import javax.persistence.Id;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * 订单详情表
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class OrderDTO extends TimeUtils {
 
     /** 订单id. */
@@ -38,7 +41,7 @@ public class OrderDTO extends TimeUtils {
     /** 支付状态, 默认为0未支付. */
     private Integer payStatus;
 
-    List<OrderDetail>orderDetailList;
+    List<OrderDetail>orderDetailList = new ArrayList<>();
 
 
     public String getOrderId() {

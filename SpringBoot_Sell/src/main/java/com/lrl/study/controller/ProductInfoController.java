@@ -6,7 +6,7 @@ import com.lrl.study.VO.ProductVO;
 import com.lrl.study.VO.ResultVO;
 import com.lrl.study.domain.ProductCategory;
 import com.lrl.study.domain.ProductInfo;
-import com.lrl.study.service.PorductCategoryService;
+import com.lrl.study.service.ProductCategoryService;
 import com.lrl.study.service.ProductInfoService;
 import com.lrl.study.util.ResultVOUtils;
 import org.springframework.beans.BeanUtils;
@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,7 +26,7 @@ public class ProductInfoController extends ResultVOUtils{
     private ProductInfoService productInfoService;
 
     @Autowired
-    private PorductCategoryService porductCategoryService;
+    private ProductCategoryService productCategoryService;
 
     @GetMapping("/result")
     public ResultVO resultVO(){
@@ -44,7 +43,7 @@ public class ProductInfoController extends ResultVOUtils{
                 .collect(Collectors.toList());
 
         List<ProductCategory> productCategoryList=
-                this.porductCategoryService.findByCategoryTypeIn(categotyTypeList);
+                this.productCategoryService.findByCategoryTypeIn(categotyTypeList);
 
 
         //第三部是数据拼装

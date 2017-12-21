@@ -11,4 +11,8 @@ public class ResultVOUtils {
         resultVO.setData(o);
         return resultVO;
     }
+
+    public static ResultVO success(){
+        return success(null);
+    }
 }

@@ -107,12 +107,12 @@ public class OrderServiceImp  implements OrderService {
         //1.根据orderId查找OrderMaster
         OrderMaster orderMaster=orderMasterRepository.findOne(orderId);
         if(orderMaster == null){
-            throw new SellException(ResultEnum.PRODUCT_NOT_EXIST.ORDER_NOT_EXIST);
+            throw new SellException(ResultEnum.ORDER_NOT_EXIST);
         }
         //2.根据orderId查找OrderDetail
         List<OrderDetail> orderDetailList = orderDetailRepository.findByOrderId(orderId);
         if(CollectionUtils.isEmpty(orderDetailList)){
-            throw new SellException(ResultEnum.PRODUCT_NOT_EXIST.ORDERDETAIL_NOT_EXIST);
+            throw new SellException(ResultEnum.ORDERDETAIL_NOT_EXIST);
         }
 
         //3.返回OrderDTO,需要把OrderMaster和OrderDetail拼装并OrderDTO返回
@@ -211,6 +211,11 @@ public class OrderServiceImp  implements OrderService {
      */
     @Override
     public Page<OrderDTO> findList(Pageable pageable) {
-        return null;
+
+        Page<OrderMaster> orderMasterPage = orderMasterRepository.findAll(pageable);
+
+        List<OrderDTO> orderDTOList = OrderMaster2OrderDTOConverter.convert(orderMasterPage.getContent());
+
+        return new PageImpl<>(orderDTOList, pageable, orderMasterPage.getTotalElements());
     }
 }

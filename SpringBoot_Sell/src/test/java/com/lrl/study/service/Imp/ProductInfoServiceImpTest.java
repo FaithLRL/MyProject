@@ -61,8 +61,8 @@ public class ProductInfoServiceImpTest {
     @Test
     public void save() throws Exception {
         ProductInfo productInfo = new ProductInfo();
-        productInfo.setProductId("980");
-        productInfo.setProductName("糖醋排骨");
+        productInfo.setProductId("119");
+        productInfo.setProductName("叫花鸡");
         productInfo.setProductPrice(new BigDecimal(2.5));
         productInfo.setProductStock(100);
         productInfo.setProductDescription("好吃！");
@@ -71,6 +71,20 @@ public class ProductInfoServiceImpTest {
         productInfo.setProductStatus(ProductStatusEnum.UP.getCode());
         Assert.assertNotNull(this.productInfoServiceImp.save(productInfo));
 
+    }
+
+    @Test
+    public void onSale() throws Exception{
+
+        ProductInfo productInfo = productInfoServiceImp.onSale("119");
+        Assert.assertEquals(productInfo.getProductStatus(), ProductStatusEnum.UP.getCode());
+
+    }
+
+    @Test
+    public void offSale() throws Exception{
+        ProductInfo productInfo = productInfoServiceImp.offSale("119");
+        Assert.assertEquals(productInfo.getProductStatus(), ProductStatusEnum.DOWN.getCode());
     }
 
 }

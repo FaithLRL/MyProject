@@ -3,7 +3,7 @@ package com.lrl.study.service.Imp;
 
 import com.lrl.study.domain.ProductCategory;
 import com.lrl.study.repository.ProductCategoryRepository;
-import com.lrl.study.service.PorductCategoryService;
+import com.lrl.study.service.ProductCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ import java.util.List;
  * 实现类
  */
 @Service
-public class ProductCategoryServiceImp implements PorductCategoryService {
+public class ProductCategoryServiceImp implements ProductCategoryService {
 
    @Autowired
    private ProductCategoryRepository productCategoryRepository;

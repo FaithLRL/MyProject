@@ -43,8 +43,8 @@ public class ProductCategoryServiceImpTest {
     @Test
     public void save() throws Exception {
         ProductCategory productCategory = new ProductCategory();
-        productCategory.setCategoryName("生活用品类");
-        productCategory.setCategoryType(3);
+        productCategory.setCategoryName("好评类");
+        productCategory.setCategoryType(2);
         Assert.assertNotNull(productCategoryServiceImp.save(productCategory));
     }
 

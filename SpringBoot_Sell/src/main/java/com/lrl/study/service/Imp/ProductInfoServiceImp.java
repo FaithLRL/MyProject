@@ -110,4 +110,51 @@ public class ProductInfoServiceImp implements ProductInfoService {
             productInfoRepository.save(productInfo);
         }
     }
+
+    /**
+     * 上架
+     * @param productId
+     * @return
+     */
+    @Override
+    public ProductInfo onSale(String productId) {
+        //1.根据productId --> findOne查找商品对象
+        ProductInfo productInfo = productInfoRepository.findOne(productId);
+        //2.if(判断商品对象是否存在) 不存在抛出异常
+        if (productInfo == null){
+            throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+        }
+        //3.if(判断商品对象是否存在Status状态是否为UP(上架状态)）状态不对，抛出异常
+        if (productInfo.getProductStatusEnum() == ProductStatusEnum.UP){
+            throw new SellException(ResultEnum.PRODUCT_STATUS_ERROR);
+
+        }
+        //4.修改商品对象的productStatus为UP（下架状态）
+        productInfo.setProductStatus(ProductStatusEnum.UP.getCode());
+        //5.sve并 return
+        return productInfoRepository.save(productInfo);
+    }
+
+    /**
+     * 下架
+     * @param productId
+     * @return
+     */
+    @Override
+    public ProductInfo offSale(String productId) {
+        //1.根据productId --> findOne查找商品对象
+        ProductInfo productInfo = productInfoRepository.findOne(productId);
+        //2.if(判断商品对象是否存在) 不存在抛出异常
+        if (productInfo == null){
+            throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+        }
+        //3.if(判断商品对象是否存在Status状态是否为DOWN(下架状态)）状态不对，抛出异常
+        if (productInfo.getProductStatusEnum() == ProductStatusEnum.DOWN){
+            throw new SellException(ResultEnum.PRODUCT_STATUS_ERROR);
+        }
+        //4.修改商品对象的productStatus为DOWN（上架状态）
+        productInfo.setProductStatus(ProductStatusEnum.DOWN.getCode());
+        //5.sve并 return
+        return productInfoRepository.save(productInfo);
+    }
 }

@@ -7,7 +7,7 @@ import com.lrl.study.domain.ProductCategory;
 
 import java.util.List;
 
-public interface PorductCategoryService {
+public interface ProductCategoryService {
     ProductCategory findOne(Integer categoryid);
 
     List<ProductCategory> findAll();

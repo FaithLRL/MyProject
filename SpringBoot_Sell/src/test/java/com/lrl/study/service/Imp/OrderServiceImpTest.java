@@ -28,20 +28,20 @@ public class OrderServiceImpTest {
     @Test
     public void crate() throws Exception {
         OrderDTO orderDTO = new OrderDTO();
-        orderDTO.setBuyerName("王四");
-        orderDTO.setBuyerAddress("温大");
-        orderDTO.setBuyerPhone("515106556");
-        orderDTO.setBuyerOpenid("111");
+        orderDTO.setBuyerName("庄三");
+        orderDTO.setBuyerAddress("温职");
+        orderDTO.setBuyerPhone("34324234242");
+        orderDTO.setBuyerOpenid("222");
 
         List<OrderDetail> orderDetailList =new ArrayList<>();
 
         OrderDetail orderDetail=new OrderDetail();
-        orderDetail.setProductId("147");
-        orderDetail.setProductQuantity(1);
+        orderDetail.setProductId("112");
+        orderDetail.setProductQuantity(5);
 
         OrderDetail orderDetail1 =new OrderDetail();
-        orderDetail1.setProductId("140");
-        orderDetail1.setProductQuantity(1);
+        orderDetail1.setProductId("110");
+        orderDetail1.setProductQuantity(20);
 
         orderDetailList.add(orderDetail);
         orderDetailList.add(orderDetail1);
@@ -72,7 +72,7 @@ public class OrderServiceImpTest {
     @Test
     public void cancel() throws Exception {
         //第一步：查找一个orderDTO
-        OrderDTO orderDTO = orderServiceImp.findOne("1512445076164201138");
+        OrderDTO orderDTO = orderServiceImp.findOne("1512977998919460278");
         //第二步：执行orderServiceImp里面的cancel方法
         OrderDTO result =orderServiceImp.cancel(orderDTO);
         //第三步：第二步返回对象中的订单状态码是否等于enum里的取消状态码
